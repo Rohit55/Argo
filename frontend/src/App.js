@@ -1,17 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import InventoryPage from './pages/InventoryPage';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import InventoryList from './components/InventoryList';
+import AddInventory from './components/AddInventoryList';
+import EditInventory from './components/EditInventoryList';
 
-function App () {
+const App = () => {
   return (
     <Router>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/inventory" element={<InventoryPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/inventory" element={<InventoryList />} />
+        <Route path="/add" element={<AddInventory />} />
+        <Route path="/edit/:id" element={<EditInventory />} />
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

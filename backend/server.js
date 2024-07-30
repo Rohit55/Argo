@@ -1,16 +1,17 @@
 import express from 'express';
 import cors from 'cors';
-// import {  } from "mangoose";
+import { connectDB } from "./db.js";
 import dotenv from "dotenv";
-
 import items from "./routes/items.js";
 
-
-dotenv.config();
 const app = express();
-app.use(cors());
 const PORT = process.env.PORT;
+
+connectDB();
+app.use(cors());
 app.use(items);
+dotenv.config();
+
 app.get('/', (req, res) => {
   res.status(200).send('Inventory Management API');
 });
