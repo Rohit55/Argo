@@ -21,7 +21,8 @@ const AddInventory = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('/api/inventory', {
+    console.log({ item });
+    fetch('http://localhost:1122/items', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

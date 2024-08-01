@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/items', getItems);
 router.post('/items', createItem);
-router.put('/items', updateItem);
-router.delete('/item', deleteItem);
+router.put('/items/:id', updateItem);
+router.delete('/item/:id', deleteItem);
 
 export default router;

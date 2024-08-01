@@ -16,7 +16,7 @@ const EditInventory = () => {
   });
 
   useEffect(() => {
-    fetch(`/api/inventory/${id}`)
+    fetch(`http://localhost:1122/items/${id}`)
       .then(response => response.json())
       .then(data => setItem(data))
       .catch(error => console.error('Error fetching item:', error));
@@ -31,7 +31,7 @@ const EditInventory = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`/api/inventory/${id}`, {
+    fetch(`http://localhost:1122/items/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

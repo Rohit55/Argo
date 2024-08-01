@@ -3,20 +3,25 @@ import { getDB } from "../db.js";
 
 const getItems = async (req, res) => {
   try {
+    console.log({ req });
     const db = getDB();
     const items = await db.collection('items').find().toArray();
     res.status(200).json(items);
   } catch (err) {
+    console.log({ err });
     res.status(400).json({ error: err.message });
   }
 };
 
 const createItem = async (req, res) => {
   try {
+    console.log({ req: req.body });
     const db = getDB();
     const item = await db.collection('items').insertOne(req.body);
+    console.log({ item });
     res.status(201).json({ id: item.insertedId });
   } catch (err) {
+    console.log({ err });
     res.status(400).json({ error: err.message });
   }
 };
